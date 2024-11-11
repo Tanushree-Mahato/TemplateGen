@@ -60,8 +60,8 @@ This project is a full-stack web application built with a React frontend and Nod
 
 #### 1. Clone the Repository
 ```bash
-git clone <repository_url>
-cd <project_directory>
+git clone https://github.com/Tanushree-Mahato/TemplateGen.git
+cd TemplateGen
 
 # 2. Install Dependencies
 # For backend:
