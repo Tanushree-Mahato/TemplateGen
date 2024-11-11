@@ -19,6 +19,7 @@
     "docxtemplater": "^3.52.0",
     "embla-carousel-react": "^7.1.0",
     "file-saver": "^2.0.5",
+    "iconsax-react": "^0.0.8",
     "jspdf": "^2.5.2",
     "pdf-lib": "^1.17.1",
     "pdfjs-dist": "^4.8.69",

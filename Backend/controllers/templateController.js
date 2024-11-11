@@ -85,3 +85,27 @@ exports.fillTemplate = async (req, res) => {
     res.status(500).json({ error: 'Server error' });
   }
 };
+exports.deleteTemplate = async (req, res) => {
+  const { templateId } = req.params;
+  console.log(templateId)
+
+  try {
+    // Find the template by ID
+    const template = await Template.findById(templateId);
+    if (!template) {
+      return res.status(404).json({ message: 'Template not found' });
+    }
+
+    // Delete the file from the file system if it exists
+    if (template.path && fs.existsSync(template.path)) {
+      fs.unlinkSync(template.path);
+    }
+
+    // Delete the template from the database
+    await Template.findByIdAndDelete(templateId);
+
+    res.status(200).json({ message: 'Template deleted successfully' });
+  } catch (error) {
+    res.status(500).json({ message: 'Error deleting template', error: error.message });
+  }
+};

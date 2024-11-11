@@ -8,5 +8,6 @@ const upload = require('../middleware/uploadMiddleware');
 router.post('/upload', authMiddleware, upload.single('file'), templateController.uploadTemplate);
 router.post('/getTemplates', authMiddleware, templateController.getTemplate);
 router.post('/generate', authMiddleware, templateController.fillTemplate);
+router.delete('/:templateId', authMiddleware, templateController.deleteTemplate);
 
 module.exports = router;

@@ -1,17 +1,16 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Tooltip } from '@mui/material';
-import DashboardIcon from '@mui/icons-material/Dashboard';
-import TemplateIcon from '@mui/icons-material/Description';
-import GenerateTemplateIcon from '@mui/icons-material/Build';
+import { Category, DocumentCode2, Setting2, Logout } from 'iconsax-react';
 import '../styles/drawer.css'
 import { logout } from '../store/authSlice';
 import { useDispatch } from 'react-redux';
 const drawerItems = [
-  { text: 'Dashboard', icon: <DashboardIcon />, link: '/dashboard' },
-  { text: 'Template', icon: <TemplateIcon />, link: '/template' },
-  { text: 'Generate Template', icon: <GenerateTemplateIcon />, link: '/gentemp' }
+  { text: 'Dashboard', icon: <Category size="20" variant="Bulk" />, link: '/dashboard' },
+  { text: 'Template', icon: <DocumentCode2 size='20' variant='Bulk' />, link: '/template' },
+  { text: 'Generate Template', icon: <Setting2 size='20' variant='Bulk' />, link: '/gentemp' }
 ];
+
 
 function Layout({ children }) {
   const location = useLocation();
@@ -37,12 +36,10 @@ function Layout({ children }) {
             </li>
           ))}
         </ul>
-        <div className='bottom-0'>
-          <Tooltip title='Logout' placement="right">
-            <button onClick={() => dispatch(logout())}>
-              Logout
-            </button>
-          </Tooltip>
+        <div className='bottom-0 mt-5 ml-2'>
+          <Tooltip title='Logout'>
+              <Logout size='20' color='white' variant='Bulk' onClick={() => dispatch(logout())} />
+            </Tooltip>
         </div>
       </div>
 
